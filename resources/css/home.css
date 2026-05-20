@@ -1,0 +1,194 @@
+/* ── Hero ─────────────────────────────────────────────────── */
+.hero {
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0A1628 0%, #142240 60%, #0D1F3C 100%);
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(201,168,76,0.06) 0%, rgba(10,22,40,0.60) 100%);
+    pointer-events: none;
+}
+
+.hero-pattern {
+    position: absolute; inset: 0; opacity: 0.035;
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(201,168,76,1) 40px, rgba(201,168,76,1) 41px),
+        repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(201,168,76,1) 40px, rgba(201,168,76,1) 41px);
+    pointer-events: none;
+}
+
+.hero-content { position: relative; z-index: 2; padding: 3rem 1.5rem; max-width: 760px; margin: 0 auto; }
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.40);
+    color: var(--gold);
+    font-size: 12px; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 5px 16px;
+    border-radius: 4px; margin-bottom: 1.4rem;
+    animation: fadeDown 0.7s ease both;
+}
+
+.hero-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 700; color: #FFF; line-height: 1.1;
+    margin-bottom: 1.8rem; letter-spacing: 1px;
+    text-transform: uppercase;
+    animation: fadeDown 0.8s 0.1s ease both;
+}
+
+.hero-logo-lockup {
+    display: inline-flex; align-items: center; gap: 12px;
+    margin-bottom: 2rem;
+    animation: fadeDown 0.8s 0.2s ease both;
+}
+.hero-logo-word {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700; color: var(--gold);
+    letter-spacing: 2px; text-transform: uppercase;
+}
+.hero-logo-cup {
+    width: 52px; height: 52px;
+    background: var(--gold); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 0 4px rgba(201,168,76,0.22);
+}
+
+.hero-actions {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem; flex-wrap: wrap;
+    animation: fadeDown 0.8s 0.3s ease both;
+}
+
+.hero-scroll-hint { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 2; }
+.hero-scroll-hint span {
+    display: block; width: 20px; height: 32px;
+    border: 2px solid rgba(201,168,76,0.4); border-radius: 10px; position: relative;
+}
+.hero-scroll-hint span::after {
+    content: ''; display: block; width: 3px; height: 6px;
+    background: var(--gold); border-radius: 2px; margin: 5px auto 0;
+    animation: scrollPulse 1.8s infinite;
+}
+
+@keyframes scrollPulse { 0%,100%{opacity:1;transform:translateY(0)} 50%{opacity:.4;transform:translateY(10px)} }
+@keyframes fadeDown   { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── Brands strip ─────────────────────────────────────────── */
+.brands-strip {
+    background: var(--navy);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+.brands-inner {
+    max-width: 1160px; margin: 0 auto;
+    display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+}
+.brands-label {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.35); font-weight: 600; white-space: nowrap;
+}
+.brands-list { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.brand-chip {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px; font-weight: 600; letter-spacing: 1px;
+    color: var(--gold); background: rgba(201,168,76,0.10);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 4px 12px; border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* ── Secciones ────────────────────────────────────────────── */
+.ch-section { padding: 4rem 0; }
+.ch-section--dark { background: var(--navy); }
+.ch-section-inner { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
+.section-header { margin-bottom: 2.5rem; }
+
+/* ── About cards ──────────────────────────────────────────── */
+.about-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 1.5rem; }
+
+.about-card {
+    background: #fff; border-radius: var(--radius-lg);
+    padding: 1.8rem; border: 1px solid var(--border);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+.about-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+
+.about-icon-wrap {
+    width: 52px; height: 52px; border-radius: 10px;
+    background: var(--gold-pale); display: flex;
+    align-items: center; justify-content: center; margin-bottom: 1.2rem;
+}
+.about-icon-wrap svg { width: 24px; height: 24px; stroke: var(--gold); }
+.about-card h3 { font-family:'Rajdhani',sans-serif; font-size:1.15rem; color:var(--navy); margin-bottom:.5rem; font-weight:700; letter-spacing:.3px; text-transform:uppercase; }
+.about-card p  { font-size:13px; color:var(--text-muted); line-height:1.7; }
+
+/* ── Products grid ────────────────────────────────────────── */
+.products-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.3rem; }
+
+.product-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.18);
+    border-radius: var(--radius-lg); padding: 1.5rem;
+    transition: all 0.25s;
+}
+.product-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(201,168,76,0.42); transform: translateY(-4px);
+}
+.product-emoji { font-size: 3rem; margin-bottom: .8rem; display: block; }
+.product-tag {
+    display: inline-block; background: rgba(201,168,76,0.18);
+    color: var(--gold); font-size:10px; letter-spacing:1.2px;
+    text-transform:uppercase; padding:3px 10px; border-radius:4px; margin-bottom:.7rem;
+}
+.product-name { font-family:'Rajdhani',sans-serif; font-size:1.1rem; color:#FFF; font-weight:700; margin-bottom:.4rem; text-transform:uppercase; letter-spacing:.5px; }
+.product-desc { font-size:13px; color:rgba(255,255,255,0.60); line-height:1.6; margin-bottom:1rem; }
+.product-footer { display:flex; align-items:center; justify-content:space-between; }
+.product-price { font-family:'Rajdhani',sans-serif; font-size:1.15rem; color:var(--gold); font-weight:700; }
+.product-link  { font-size:12px; color:rgba(201,168,76,0.65); transition:color .2s; }
+.product-link:hover { color:var(--gold); }
+
+/* ── Testimonios ──────────────────────────────────────────── */
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 1.3rem; }
+
+.testi-card {
+    background:#fff; border-radius:var(--radius-lg);
+    padding:1.6rem; border:1px solid var(--border);
+    transition:transform .2s, box-shadow .2s;
+}
+.testi-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-sm); }
+.testi-stars  { font-size:15px; margin-bottom:.8rem; letter-spacing:2px; }
+.testi-text   { font-size:13px; color:var(--text-muted); line-height:1.7; font-style:italic; margin-bottom:1rem; }
+.testi-author { display:flex; align-items:center; gap:10px; }
+.testi-avatar {
+    width:36px; height:36px; border-radius:6px;
+    background:var(--gold-pale); border:1.5px solid rgba(201,168,76,0.35);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Rajdhani',sans-serif; font-size:15px; font-weight:700;
+    color:var(--navy); flex-shrink:0;
+}
+.testi-author strong { display:block; font-size:13px; color:var(--navy); font-weight:600; line-height:1.2; }
+.testi-author span   { font-size:11px; color:var(--text-muted); }
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width:768px) {
+    .hero { min-height:460px; }
+    .ch-section { padding:2.8rem 0; }
+    .brands-inner { flex-direction:column; align-items:flex-start; gap:.8rem; }
+}
+@media (max-width:480px) {
+    .hero { min-height:420px; }
+    .products-grid { grid-template-columns:1fr; }
+    .testimonials-grid { grid-template-columns:1fr; }
+}
